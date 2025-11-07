@@ -1,0 +1,56 @@
+import React from 'react';
+import { Film, Youtube, Star } from 'lucide-react';
+
+export default function MarvelLinktree() {
+  const links = [
+    {
+      title: "Marvel Studios YouTube",
+      url: "https://youtu.be/LjiIt1FIFxI?si=ttShm-6kW5juiVBR",
+      icon: <Youtube className="w-5 h-5" />
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-red-900 via-black to-blue-900 flex items-center justify-center p-4">
+      <div className="w-full max-w-md">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-red-600 to-blue-600 rounded-full mb-4 shadow-2xl">
+            <Film className="w-12 h-12 text-white" />
+          </div>
+          <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
+            FILM MARVEL
+          </h1>
+          <p className="text-gray-300 flex items-center justify-center gap-1">
+            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            Marvel Cinematic Universe
+            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+          </p>
+        </div>
+
+        {/* Links */}
+        <div className="space-y-4">
+          {links.map((link, index) => (
+            <a
+              key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-gradient-to-r from-red-600 to-blue-600 hover:from-red-500 hover:to-blue-500 text-white font-semibold py-4 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+            >
+              {link.icon}
+              <span>{link.title}</span>
+            </a>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <div className="text-center mt-8">
+          <p className="text-gray-400 text-sm">
+            © Marvel Studios
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
